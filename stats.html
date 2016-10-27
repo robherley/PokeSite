@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Pokedex</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Russo+One">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/stats.js"></script>
+  </head>
+  <body>
+    <span class="logo"><img src="images/logo.png" width="400"/></span>
+    <ul>
+      <li><a href="index.html">Poke Select</a></li>
+      <li><a href="stats.html">Stats</a></li>
+      <li><a href="https://github.com/robherley/PokeSite">Source</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="center-page-div">
+      <h3 id="idname">#ID #NAME</h3>
+      <img src="images/sprites/000.png" id="stat-img"/>
+      <table id="numTab">
+        <tr>
+          <th>HP</th>
+          <th>ATK</th>
+          <th>DEF</th>
+          <th>SP ATK</th>
+          <th>SP DEF</th>
+          <th>SPD</th>
+        </tr>
+        <tr>
+          <td id="hp">#HP</td>
+          <td id="atk">#ATK</td>
+          <td id="def">#DEF</td>
+          <td id="sa">#SA</td>
+          <td id="sd">#SD</td>
+          <td id="spd">#SPD</td>
+        </tr>
+      </table>
+      <br />
+      <table id="descTab" class="long-table">
+        <tr>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td id="desc">#Description</td>
+        </tr>
+      </table>
+      <br />
+      <table id="typeTab" class="long-table">
+        <tr>
+          <th>Type</th>
+          <th>Strong Against</th>
+          <th>Weak Against</th>
+        </tr>
+        <tr>
+          <td id="type">#TYPES</td>
+          <td id="strong">#STRONG</td>
+          <td id="weak">#WEAK</td>
+        </tr>
+      </table>
+      <br />
+      <table id="evoTab" class="long-table">
+        <tr>
+          <th>Evolution:</th>
+        </tr>
+        <tr>
+          <td>#SPRITE</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "Normal": {
+    "S":"N/A",
+    "W":"Rock, Ghost"
+  },
+  "Fire": {
+    "S":"Grass, Ice, Bug",
+    "W":"Fire, Water, Rock, Dragon"
+  },
+  "Water": {
+    "S":"Fire, Ground, Rock",
+    "W":"Water, Grass, Dragon"
+  },
+  "Electric":{
+    "S":"Water, Flying",
+    "W":"Electric, Grass, Ground, Dragon"
+  },
+  "Grass":{
+    "S":"Water, Ground, Rock",
+    "W":"Fire, Grass, Poison, Flying, Bug, Dragon"
+  },
+  "Ice":{
+    "S":"Grass, Ground, Flying",
+    "W":"Water, Ice"
+  },
+  "Fighting":{
+    "S":"Normal, Ice, Rock",
+    "W":"Poison, Flying, Psychic, Bug, Ghost"
+  },
+  "Poison":{
+    "S":"Grass, Bug",
+    "W":"Poison, Ground, Rock, Ghost"
+  },
+  "Ground":{
+    "S":"Fire, Electric, Poison, Rock",
+    "W":"Grass, Flying, Bug"
+  },
+  "Flying":{
+    "S":"Grass, Fighting, Bug",
+    "W":"Electric, Rock"
+  },
+  "Psychic":{
+    "S":"Fighting, Poison",
+    "W":"Psychic"
+  },
+  "Bug":{
+    "S":"Grass, Poison, Psychic",
+    "W":"Fire, Fighting, Flying"
+  },
+  "Rock":{
+    "S":"Fire, Ice, Flying, Bug",
+    "W":"Fighting, Ground"
+  },
+  "Ghost":{
+    "S":"Ghost",
+    "W":"Normal, Psychic"
+  },
+  "Dragon":{
+    "S":"Dragon",
+    "W":"N/A"
+  }
+}
