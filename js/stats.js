@@ -29,21 +29,32 @@ function updateContent(){
   $("#sa").text(pokeJSON.stats[2].base_stat);
   $("#sd").text(pokeJSON.stats[1].base_stat);
   $("#spd").text(pokeJSON.stats[0].base_stat);
-  $("#type").text(getTypes)
+  $("#type").text(arrayToString);
   getStrengthWeak(currType);
+  getDesc(currPokemon);
+  console.log(typeArray());
 }
 
-function getTypes(){
+function arrayToString(){
   var typeArray = pokeJSON.types;
-  var string = "";
+  var string= "";
   for (i = 0; i < typeArray.length; i++){
-    string += cap(typeArray[i].type.name) + ", "
-    currType[i] = cap(typeArray[i].type.name)
+    string += cap(typeArray[i].type.name) + ", ";
+    currType[i] = cap(typeArray[i].type.name);
   }
   return string.substring(0, string.length - 2);
 }
 
-//Possibly fix to add table row for every type 
+function typeArray(){
+  var typeArray = pokeJSON.types;
+  var newArray = [];
+  for (i = 0; i < typeArray.length; i++){
+    newArray.push(cap(typeArray[i].type.name));
+  }
+  return newArray
+}
+
+//Possibly fix to add table row for every type
 function getStrengthWeak(type){
   $.getJSON(pathTypeJSON, function(json){
     typeJSON = json;
@@ -55,6 +66,16 @@ function getStrengthWeak(type){
     }
     $("#strong").text(strong.substring(0, strong.length - 2));
     $("#weak").text(weak.substring(0, weak.length - 2));
+  });
+}
+
+function getDesc(currPokemon){
+  $.getJSON("http://pokeapi.co/api/v1/pokemon/"+currPokemon, function(json){
+    descURL = json.descriptions[0].resource_uri;
+    $.getJSON("http://pokeapi.co" + descURL, function(json){
+      $("#desc").text(json.description);
+      console.log(json.description);
+    });
   });
 }
 

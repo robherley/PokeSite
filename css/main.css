@@ -58,18 +58,14 @@ ul {
     margin: 0;
     padding: 0px;
     width: 250px;
-
 }
 
 li a {
-    font-family: 'Russo One', sans-serif;
     color: Crimson;
     box-shadow: 4px 4px 4px #000;
     text-shadow: 2px 2px 2px #000;
     display: block;
     padding: 8px 16px;
-    text-decoration: none;
-    font-size: 32px;
     background-color: #fff;
     margin: 10px 0
 }
@@ -101,18 +97,60 @@ td {
   background-color: White;
 }
 
+input[type=text], select {
+    padding: 10px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: White;
+    font-family: 'Roboto', sans-serif;
+}
+
+label{
+  font-family: 'Roboto', sans-serif;
+  color: White;
+  font-size: 18px;
+  text-shadow: 2px 2px 2px #000;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: Crimson;
+    color: white;
+    padding: 7px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+textarea {
+  padding: 3px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: White;
+  font-family: 'Roboto', sans-serif;
+}
+
+input[type=submit]:hover {
+    background-color: Grey;
+}
+
+.header{
+  width: 100%;
+  height: 100px;
+}
+
 .top-nav{
   box-shadow: 10px 10px 5px #888888;
 }
 
-
-.center-div{
-     margin: 0 auto;
-     width: 100px;
-}
-
 .poke-div{
-  position: fixed;
+  position: absolute;
   margin: auto;
   top: 0;
   right: 0;
@@ -129,15 +167,64 @@ td {
   right: 0;
   bottom: 0;
   left: 0;
-  width: 750px;
+  width: 700px;
   height: 600px;
   background-color: rgba(0, 0, 0, 0.4);
   padding-right:20px;
   padding-left:20px;
+  border: 3px solid white;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 4px 4px 4px #000;
 }
 
 .long-table{
-  width: 100%
+  width: 100%;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+    font-family: 'Russo One', sans-serif;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: Crimson;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.comments{
+  text-align: center;
+}
+
+#pokeball{
+  width: 100%;
 }
 
 #nav-container {
@@ -171,7 +258,7 @@ td {
   position:absolute;
   right:0;
   width:30%;
-  padding-right: 25px;
+  padding-right: 35px;
 }
 
 #stat-img{
@@ -180,4 +267,101 @@ td {
   top:0;
   width:20%;
   padding-right: 25px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+#pokeButton {
+  font-family: 'Russo One', sans-serif;
+  font-size: 16px;
+  border: 0px;
+  background: transparent;
+  color: White;
+}
+
+#pokeButton:hover {
+  color: Crimson;
+}
+
+
+/* Desktop (width > 830px) */
+@media screen and (min-width: 830px) {
+  /* Remains normal for now*/
+}
+
+/* Tablet (830px > width > 480px) */
+@media screen and (max-width:830px) and (min-width:480px){
+  h2{
+    font-size: 24px;
+  }
+  .poke-div{
+    padding-top: 20px;
+    width: 480px;
+    position: relative;
+  }
+  .center-page-div{
+    position: relative;
+    width:auto;
+    height: auto;
+  }
+  #logo{
+    max-width: 100%;
+    height: auto;
+  }
+  #pokeball{
+    width:75%;
+  }
+  #nav-container {
+    position: absolute;
+    top: 250px;
+    left: 10px;
+    width: 80%;
+  }
+
+  input[type=text], select {
+      padding: 0px;
+  }
+}
+
+/* Phone (width < 480px) */
+@media screen and (max-width:480px){
+  h2{
+    font-size: 24px;
+  }
+  .poke-div{
+    padding-top: 20px;
+    position: relative;
+    width: 480px;
+  }
+  .center-page-div{
+    position: relative;
+    width:auto;
+    height:auto;
+  }
+  #logo{
+    max-width: 100%;
+    height: auto;
+  }
+  #pokeball{
+    width:75%;
+  }
+  #nav-container {
+    position: absolute;
+    top: 250px;
+    left: 10px;
+    width: 80%;
+  }
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+
+  input[type=text], select {
+      padding: 0px;
+  }
 }

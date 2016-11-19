@@ -5,10 +5,9 @@
     <title>Online Pokedex</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Russo+One">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <script src="js/navbar.js"></script>
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -26,15 +25,28 @@
     <ul>
       <li><span onclick="openNav()"><a class="fa fa-bars fa-3x"></a></span></li>
     </ul>
-    <div class="poke-div">
-      <img src="images/main.png" alt="Main Pokeball Image" id="pokeball"/>
-      <div id="nav-container">
-        <img src="images/sprites/000.png" id="poke-sprite" alt="Unknown Sprite"/>
-        <h2>Please Select a Pokemon:</h2>
-        <select id="pokeSelect">
-          <option>Choose</option>
-        </select>
-        <button id="pokeButton"><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
+    <div class="center-page-div">
+      <div class="comments">
+      <h3>Leave a Comment</h3>
+      <form>
+          <label>Name:</label><br />
+          <input type="text" name="user"><br>
+          <label>Comment:</label><br>
+          <textarea rows="5" cols="20">Type your comment here.</textarea><br>
+          <p>Comment Category:</p>
+          <input type="radio" name="gender" value="pokemon" checked><label>Pokemon</label>
+          <input type="radio" name="gender" value="movie"><label>Movie</label>
+          <input type="radio" name="gender" value="game"><label>Game</label>
+          <br><br>
+          <label>Favorite Starter:</label>
+          <select name="starters">
+            <option value="001">001 - Bulbasaur</option>
+            <option value="004">004 - Charmander</option>
+            <option value="007">007 - Squirtle</option>
+            <option value="025">025 - Pikachu</option>
+          </select>
+          <input type="submit" value="Submit">
+        </form>
       </div>
     </div>
   </body>

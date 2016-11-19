@@ -6,14 +6,24 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Russo+One">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <script src="js/navbar.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <span class="logo"><img src="images/logo.png" width="400" alt= "Pokedex Logo"/></span>
+    <div class="header">
+      <span class="logo"><img src="images/logo.png" width="400" alt="Pokedex Logo"/></span>
+    </div>
+    <div id="sidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html"><i class="fa fa-search"></i> Poke Select</a>
+      <a href="stats.html"><i class="fa fa-bar-chart"></i> Stats</a>
+      <a href="comment.html"><i class="fa fa-user-circle"></i> Comments</a>
+      <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+      <a href="https://github.com/robherley/PokeSite"><i class="fa fa-code"></i> Source</a>
+    </div>
     <ul>
-      <li><a href="index.html">Poke Select</a></li>
-      <li><a href="stats.html">Stats</a></li>
-      <li><a href="https://github.com/robherley/PokeSite">Source</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><span onclick="openNav()"><a class="fa fa-bars fa-3x"></a></span></li>
     </ul>
     <div class="center-page-div">
       <h3>About</h3>
