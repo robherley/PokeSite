@@ -1,9 +1,12 @@
 var currPokemon = getCookie("pkmn");
-var pathJSON = "json/pkmn/"+currPokemon+".json"
-var pathTypeJSON = "json/types.json"
+var pathJSON = "json/pkmn/"+currPokemon+".json";
+var pathTypeJSON = "json/types.json";
+var pathDescJSON = "json/desc.json";
+var pathEvoJSON = "json/evo.json";
 var pokeJSON;
 var typeJSON;
-var currType = [];
+var descJSON;
+var evoJSON;
 
 function main(){
   console.log("Page is loaded.");
@@ -29,20 +32,10 @@ function updateContent(){
   $("#sa").text(pokeJSON.stats[2].base_stat);
   $("#sd").text(pokeJSON.stats[1].base_stat);
   $("#spd").text(pokeJSON.stats[0].base_stat);
-  $("#type").text(arrayToString);
-  getStrengthWeak(currType);
+  addStrengthWeak(typeArray());
   getDesc(currPokemon);
   console.log(typeArray());
-}
-
-function arrayToString(){
-  var typeArray = pokeJSON.types;
-  var string= "";
-  for (i = 0; i < typeArray.length; i++){
-    string += cap(typeArray[i].type.name) + ", ";
-    currType[i] = cap(typeArray[i].type.name);
-  }
-  return string.substring(0, string.length - 2);
+  getEvolutions(currPokemon);
 }
 
 function typeArray(){
@@ -54,28 +47,68 @@ function typeArray(){
   return newArray
 }
 
-//Possibly fix to add table row for every type
-function getStrengthWeak(type){
+function addStrengthWeak(typeArray){
   $.getJSON(pathTypeJSON, function(json){
     typeJSON = json;
-    var strong = "";
-    var weak = "";
-    for(i=0; i < type.length; i++){
-      strong += (typeJSON[currType[i]].S) + ", ";
-      weak += (typeJSON[currType[i]].W) + ", ";
+    var table = document.getElementById("typeTab");
+    var rowCount = 1;
+    document.getElementById("typeTab").deleteRow(1);
+    for(i=0; i < typeArray.length; i++){
+      var row = table.insertRow(rowCount);
+      var type = row.insertCell(0);
+      var strong = row.insertCell(1);
+      var weak = row.insertCell(2);
+      type.innerHTML = typeArray[i];
+      strong.innerHTML = typeJSON[typeArray[i]].S;
+      weak.innerHTML = typeJSON[typeArray[i]].W;
+      rowCount++;
     }
-    $("#strong").text(strong.substring(0, strong.length - 2));
-    $("#weak").text(weak.substring(0, weak.length - 2));
   });
 }
 
 function getDesc(currPokemon){
-  $.getJSON("http://pokeapi.co/api/v1/pokemon/"+currPokemon, function(json){
-    descURL = json.descriptions[0].resource_uri;
-    $.getJSON("http://pokeapi.co" + descURL, function(json){
-      $("#desc").text(json.description);
-      console.log(json.description);
-    });
+  $.getJSON(pathDescJSON, function(json){
+    descJSON = json;
+    $("#desc").text(descJSON.PkmnDescriptions[parseInt(currPokemon)]);
+  });
+}
+
+function getEvolutions(currPokemon){
+  $.getJSON(pathEvoJSON, function(json){
+    evoJSON = json;
+    var table = document.getElementById("evoTab");
+    var evoNum = evoJSON[currPokemon].evo.length;
+    var methNum = evoJSON[currPokemon].method.length;
+    var evoRow = document.getElementById("evoRow");
+    for(i=6; i > evoNum + methNum - 1; i--){
+       evoRow.deleteCell(i);
+    }
+    if(evoNum == 1){
+      $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
+      $("#evoOne").css("width", "30%");
+      //$("#evoOne").append("This is the only form of this pokemon.");
+    }
+    else if (evoNum == 2) {
+      $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
+      $("#methodOne").append(evoJSON[currPokemon].method[0]);
+      $("#evoTwo").attr('src','images/sprites/'+evoJSON[currPokemon].evo[1]+".png");
+    }
+    else if (evoNum == 3){
+      $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
+      $("#methodOne").append(evoJSON[currPokemon].method[0]);
+      $("#evoTwo").attr('src','images/sprites/'+evoJSON[currPokemon].evo[1]+".png");
+      $("#methodTwo").append(evoJSON[currPokemon].method[1]);
+      $("#evoThree").attr('src','images/sprites/'+evoJSON[currPokemon].evo[2]+".png");
+    }
+    else{
+      $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
+      $("#methodOne").append(evoJSON[currPokemon].method[0]);
+      $("#evoTwo").attr('src','images/sprites/'+evoJSON[currPokemon].evo[1]+".png");
+      $("#methodTwo").append(evoJSON[currPokemon].method[1]);
+      $("#evoThree").attr('src','images/sprites/'+evoJSON[currPokemon].evo[2]+".png");
+      $("#methodThree").append(evoJSON[currPokemon].method[2]);
+      $("#evoFour").attr('src','images/sprites/'+evoJSON[currPokemon].evo[3]+".png");
+    }
   });
 }
 
