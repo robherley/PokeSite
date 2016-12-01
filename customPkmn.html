@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Online Pokedex</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Russo+One">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <script src="js/navbar.js"></script>
+    <script src="js/custoPkmn.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="header">
+      <span class="logo"><a href="index.html"><img src="images/logo.png" width="400" alt="Pokedex Logo"/></a></span>
+    </div>
+    <div id="sidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html"><i class="fa fa-search"></i> Poke Select</a>
+      <a href="stats.html"><i class="fa fa-bar-chart"></i> Stats</a>
+      <a href="customPkmn.html"><i class="fa fa-pencil-square-o"></i> PokeMaker</a>
+      <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+      <a href="https://github.com/robherley/PokeSite"><i class="fa fa-code"></i> Source</a>
+    </div>
+    <ul>
+      <li><label><span onclick="openNav()"><a class="fa fa-bars fa-3x"></a></span></li>
+    </ul>
+    <div class="center-page-div">
+      <h1>PokemonMaker</h1>
+      <div id="hiddenPokeDiv">
+        <h3 id="idname">#ID #NAME</h3>
+        <img src="images/pokeball.png" id="stat-img" alt="Pokemon Image"/>
+        <table id="numTab">
+          <tr>
+            <th>HP</th>
+            <th>ATK</th>
+            <th>DEF</th>
+            <th>SP ATK</th>
+            <th>SP DEF</th>
+            <th>SPD</th>
+          </tr>
+          <tr>
+            <td id="hp">#HP</td>
+            <td id="atk">#ATK</td>
+            <td id="def">#DEF</td>
+            <td id="sa">#SA</td>
+            <td id="sd">#SD</td>
+            <td id="spd">#SPD</td>
+          </tr>
+        </table>
+        <br />
+        <table id="descTab" class="long-table">
+          <tr>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td id="desc"></td>
+          </tr>
+        </table>
+        <br />
+        <table id="typeTab" class="long-table">
+          <tr>
+            <th>Type</th>
+            <th>Strong Against</th>
+            <th>Weak Against</th>
+          </tr>
+          <tr>
+            <td id="type">#TYPES</td>
+            <td id="strong">#STRONG</td>
+            <td id="weak">#WEAK</td>
+          </tr>
+        </table>
+        <br />
+    </div>
+    <div class="pokeMaker">
+
+    <button class="inputbutton" onclick="openEditor()"><p><i class="fa fa-cog fa-spin fa-2x fa-fw"></i>Create a New Pokemon!<i class="fa fa-cog fa-spin fa-2x fa-fw"></i></p></button>
+
+    <div id="id01" class="modal">
+      <span onclick="closeEditor()" class="close" title="Close Modal">&times;</span>
+
+      <form class="modal-content animate">
+        <div class="imgcontainer">
+          <img src="images/pokeball.png" alt="PkmnLogo" class="pkmnBall">
+        </div>
+
+        <div class="container">
+          <label><b>Pokemon Name</b></label>
+          <input type="text" placeholder="Enter Pokemon Name" id="pkmnName" required>
+
+          <label><b>Pokemon ID Number</b></label>
+          <input type="number" placeholder="Enter Number" id="pkmnNumber" required>
+
+          <label><b>Pokemon Description</b></label>
+          <textarea placeholder="Enter Description" id="pkmnDesc" required></textarea>
+
+          <label><b>Pokemon Types (Up to Three)</b></label>
+          <ul class="checkbox-grid">
+            <li><label><input type="checkbox" name="types[]" id="normalIn" value="Normal" />Normal</label></li>
+            <li><label><input type="checkbox" name="types[]" id="fireIn" value="Fire" />Fire</label></li>
+            <li><label><input type="checkbox" name="types[]" id="waterIn" value="Water" />Water</label></li>
+            <li><label><input type="checkbox" name="types[]" id="electricIn" value="Electric" />Electric</label></li>
+            <li><label><input type="checkbox" name="types[]" id="grassIn" value="Grass" />Grass</label></li>
+            <li><label><input type="checkbox" name="types[]" id="iceIn" value="Ice" />Ice</label></li>
+            <li><label><input type="checkbox" name="types[]" id="fightingIn" value="Fighting" />Fighting</label></li>
+            <li><label><input type="checkbox" name="types[]" id="poisonIn" value="Poison" />Poison</label></li>
+            <li><label><input type="checkbox" name="types[]" id="groundIn" value="Ground" />Ground</label></li>
+            <li><label><input type="checkbox" name="types[]" id="flyingIn" value="Flying" />Flying</label></li>
+            <li><label><input type="checkbox" name="types[]" id="psychicIn" value="Psychic" />Psychic</label></li>
+            <li><label><input type="checkbox" name="types[]" id="dragonIn" value="Dragon" />Dragon</label></li>
+            <li><label><input type="checkbox" name="types[]" id="bugIn" value="Bug" />Bug</label></li>
+            <li><label><input type="checkbox" name="types[]" id="rockIn" value="Rock" />Rock</label></li>
+            <li><label><input type="checkbox" name="types[]" id="ghostIn" value="Ghost" />Ghost</label></li>
+          </ul>
+          <table id="numInput">
+            <tr>
+              <th>HP</th>
+              <th>ATK</th>
+              <th>DEF</th>
+              <th>SP ATK</th>
+              <th>SP DEF</th>
+              <th>SPD</th>
+            </tr>
+            <tr>
+              <td><select id="hpInput"></select></td>
+              <td><select id="atkInput"></select></td>
+              <td><select id="defInput"></select></td>
+              <td><select id="saInput"></select></td>
+              <td><select id="sdInput"></select></td>
+              <td><select id="spdInput"></select></td>
+            </tr>
+          </table>
+
+        </div>
+        <div class="container" id="dark-bg">
+          <button class="inputbutton" type="button" onclick="submitForm()">Submit</button>
+          <button class="cancelbtn" type="button" onclick="closeEditor()">Cancel</button>
+        </div>
+      </form>
+    </div>
+    </div>
+    <div id="bg-scroll"></div>
+  </body>
+</html>

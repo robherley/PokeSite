@@ -1,4 +1,3 @@
-var apiURL = "http://pokeapi.co/api/v2/";
 var pokedex = "json/pokedex.json";
 var currPokemon;
 
