@@ -3,6 +3,7 @@
 Styling
 
 */
+
 @font-face {
   font-family: Pokemon; src: url('../fonts/Pokemon.ttf');
 }
@@ -97,7 +98,7 @@ td {
   background-color: White;
 }
 
-input[type=text], select {
+input[type=text], select, [type=file] {
     padding: 10px 20px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -179,21 +180,19 @@ input[type=submit]:hover {
   width: 100%;
 }
 
-/* The side navigation menu */
 .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
 }
 
-/* The navigation menu links */
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -221,7 +220,7 @@ input[type=submit]:hover {
 }
 
 .evoImage{
-  width: 65%;
+  width: 70%;
   text-align: center;
 }
 
@@ -343,7 +342,6 @@ input[type=text], input[type=number], textarea {
     box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
 .inputbutton {
     background-color: #03A9F4;
     color: white;
@@ -384,7 +382,6 @@ img.pkmnBall {
     padding: 16px;
 }
 
-
 .modal {
     display: none;
     position: fixed;
@@ -399,7 +396,6 @@ img.pkmnBall {
     padding-top: 60px;
 }
 
-
 .modal-content {
     background-color: #fff;
     margin: 5px auto;
@@ -407,9 +403,7 @@ img.pkmnBall {
     width: 80%;
 }
 
-/* The Close Button */
 .close {
-    /* Position it in the top right corner outside of the modal */
     position: absolute;
     right: 25px;
     top: 0;
@@ -418,7 +412,7 @@ img.pkmnBall {
     font-weight: bold;
 }
 
-/* Close button on hover */
+
 .close:hover,
 .close:focus {
     color: red;
@@ -441,7 +435,6 @@ img.pkmnBall {
   display: none;
 }
 
-/* Add Zoom Animation */
 .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
@@ -549,10 +542,6 @@ img.pkmnBall {
   }
   #bg-scroll{
     display: none;
-  }
-  span.psw {
-      display: block;
-      float: none;
   }
   .cancelbtn {
       width: 100%;

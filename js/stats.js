@@ -86,28 +86,37 @@ function getEvolutions(currPokemon){
     if(evoNum == 1){
       $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
       $("#evoOne").css("width", "30%");
-      //$("#evoOne").append("This is the only form of this pokemon.");
+      $("#row1").append(evoJSON[currPokemon].evo[0]);
     }
     else if (evoNum == 2) {
       $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
+      $("#row1").append(evoJSON[currPokemon].evo[0]);
       $("#methodOne").append(evoJSON[currPokemon].method[0]);
       $("#evoTwo").attr('src','images/sprites/'+evoJSON[currPokemon].evo[1]+".png");
+      $("#row2").append(evoJSON[currPokemon].evo[1]);
     }
     else if (evoNum == 3){
       $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
+      $("#row1").append(evoJSON[currPokemon].evo[0]);
       $("#methodOne").append(evoJSON[currPokemon].method[0]);
       $("#evoTwo").attr('src','images/sprites/'+evoJSON[currPokemon].evo[1]+".png");
+      $("#row2").append(evoJSON[currPokemon].evo[1]);
       $("#methodTwo").append(evoJSON[currPokemon].method[1]);
       $("#evoThree").attr('src','images/sprites/'+evoJSON[currPokemon].evo[2]+".png");
+      $("#row3").append(evoJSON[currPokemon].evo[2]);
     }
     else{
       $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
       $("#methodOne").append(evoJSON[currPokemon].method[0]);
+      $("#row1").append(evoJSON[currPokemon].evo[0]);
       $("#evoTwo").attr('src','images/sprites/'+evoJSON[currPokemon].evo[1]+".png");
       $("#methodTwo").append(evoJSON[currPokemon].method[1]);
+      $("#row2").append(evoJSON[currPokemon].evo[1]);
       $("#evoThree").attr('src','images/sprites/'+evoJSON[currPokemon].evo[2]+".png");
       $("#methodThree").append(evoJSON[currPokemon].method[2]);
+      $("#row3").append(evoJSON[currPokemon].evo[2]);
       $("#evoFour").attr('src','images/sprites/'+evoJSON[currPokemon].evo[3]+".png");
+      $("#row4").append(evoJSON[currPokemon].evo[3]);
     }
   });
 }
@@ -118,5 +127,11 @@ function cap(string){
 
 $(document).ready(function() {
   console.log("Current Pokemon: " + currPokemon);
-  main();
+  if(currPokemon == "undefined"){
+    document.getElementById('pokeStatsTables').style.display='none';
+  }
+  else{
+    document.getElementById('hidden-div').style.display='none';
+    main();
+  }
 });

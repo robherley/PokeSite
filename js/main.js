@@ -1,28 +1,6 @@
 var pokedex = "json/pokedex.json";
 var currPokemon;
 
-function main(){
-  console.log("Page is loaded.");
-
-  $.getJSON(pokedex, function(json){
-      console.log("JSON is loaded.");
-      fillSelector(getPkmnList(json))
-      console.log("Selector is filled.")
-  });
-  var dropdown = document.getElementById("pokeSelect");
-  dropdown.onchange = function(){
-    pokeSelect(this.value);
-    changeImg(currPokemon);
-  };
-  var button = document.getElementById("pokeButton");
-  button.onclick = function(){
-    console.log("Button pressed!");
-    document.cookie = "pkmn="+currPokemon;
-    console.log("Cookie Stored!");
-    document.location.href = "stats.html";
-  }
-}
-
 /**
   Sorts pokedex json into an ordered object array
 **/
@@ -66,6 +44,24 @@ function pokeSelect(value){
 
 function changeImg(value){
   $("#poke-sprite").attr('src','images/sprites/'+currPokemon+".png");
+}
+
+function main(){
+  console.log("Page is loaded.");
+
+  $.getJSON(pokedex, function(json){
+      fillSelector(getPkmnList(json));
+  });
+  var dropdown = document.getElementById("pokeSelect");
+  dropdown.onchange = function(){
+    pokeSelect(this.value);
+    changeImg(currPokemon);
+  };
+  var button = document.getElementById("pokeButton");
+  button.onclick = function(){
+    document.cookie = "pkmn="+currPokemon;
+    document.location.href = "stats.html";
+  }
 }
 
 $(document).ready(function() {

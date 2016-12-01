@@ -27,65 +27,70 @@
       <li><span onclick="openNav()"><a class="fa fa-bars fa-3x"></a></span></li>
     </ul>
     <div class="center-page-div">
-      <h3 id="idname">#ID #NAME</h3>
-      <img src="images/sprites/000.png" id="stat-img" alt="Pokemon Image"/>
-      <table id="numTab">
-        <tr>
-          <th>HP</th>
-          <th>ATK</th>
-          <th>DEF</th>
-          <th>SP ATK</th>
-          <th>SP DEF</th>
-          <th>SPD</th>
-        </tr>
-        <tr>
-          <td id="hp">#HP</td>
-          <td id="atk">#ATK</td>
-          <td id="def">#DEF</td>
-          <td id="sa">#SA</td>
-          <td id="sd">#SD</td>
-          <td id="spd">#SPD</td>
-        </tr>
-      </table>
-      <br />
-      <table id="descTab" class="long-table">
-        <tr>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td id="desc"><i class="fa fa-refresh fa-spin fa-3x fa-fw"></i></td>
-        </tr>
-      </table>
-      <br />
-      <table id="typeTab" class="long-table">
-        <tr>
-          <th>Type</th>
-          <th>Strong Against</th>
-          <th>Weak Against</th>
-        </tr>
+      <div id="pokeStatsTables">
+        <h3 id="idname">#ID #NAME</h3>
+        <img src="images/sprites/000.png" id="stat-img" alt="Pokemon Image"/>
+        <table id="numTab">
+          <tr>
+            <th>HP</th>
+            <th>ATK</th>
+            <th>DEF</th>
+            <th>SP ATK</th>
+            <th>SP DEF</th>
+            <th>SPD</th>
+          </tr>
+          <tr>
+            <td id="hp">#HP</td>
+            <td id="atk">#ATK</td>
+            <td id="def">#DEF</td>
+            <td id="sa">#SA</td>
+            <td id="sd">#SD</td>
+            <td id="spd">#SPD</td>
+          </tr>
+        </table>
+        <br />
+        <table id="descTab" class="long-table">
+          <tr>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td id="desc"><i class="fa fa-refresh fa-spin fa-3x fa-fw"></i></td>
+          </tr>
+        </table>
+        <br />
+        <table id="typeTab" class="long-table">
+          <tr>
+            <th>Type</th>
+            <th>Strong Against</th>
+            <th>Weak Against</th>
+          </tr>
 
-        <tr>
-          <td id="type">#TYPES</td>
-          <td id="strong">#STRONG</td>
-          <td id="weak">#WEAK</td>
-        </tr>
+          <tr>
+            <td id="type">#TYPES</td>
+            <td id="strong">#STRONG</td>
+            <td id="weak">#WEAK</td>
+          </tr>
 
-      </table>
-      <br />
-      <table id="evoTab" class="long-table">
-        <tr>
-          <th colspan="7">Evolution:</th>
-        </tr>
-        <tr id="evoRow">
-          <td><img id="evoOne" src="images/sprites/000.png" class="evoImage" alt="Pokemon Image"/></td>
-          <td id="methodOne"><i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true"></i></td>
-          <td><img id="evoTwo" src="images/sprites/000.png" class="evoImage" alt="Pokemon Image"/></td>
-          <td id="methodTwo"><i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true"></i></td>
-          <td><img id="evoThree" src="images/sprites/000.png" class="evoImage" alt="Pokemon Image"/></td>
-          <td id="methodThree"><i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true"></i></td>
-          <td><img id="evoFour" src="images/sprites/000.png" class="evoImage" alt="Pokemon Image"/></td>
-        </tr>
-      </table>
+        </table>
+        <br />
+        <table id="evoTab" class="long-table">
+          <tr>
+            <th colspan="7">Evolution:</th>
+          </tr>
+          <tr id="evoRow">
+            <td id="row1"><img id="evoOne" src="images/sprites/000.png" class="evoImage" alt="Pokemon Image"/></td>
+            <td id="methodOne"><i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true"></i></td>
+            <td id="row2"><img id="evoTwo" src="images/sprites/000.png" class="evoImage" alt="Pokemon Image"/></td>
+            <td id="methodTwo"><i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true"></i></td>
+            <td id="row3"><img id="evoThree" src="images/sprites/000.png" class="evoImage" alt="Pokemon Image"/></td>
+            <td id="methodThree"><i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true"></i></td>
+            <td id="row4"><img id="evoFour" src="images/sprites/000.png" class="evoImage" alt="Pokemon Image"/></td>
+          </tr>
+        </table>
+      </div>
+      <div id="hidden-div">
+        <h3>Please Select a Pokemon!</h3>
+      </div>
     </div>
     <div id="bg-scroll"></div>
   </body>

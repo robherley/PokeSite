@@ -9,6 +9,4 @@ Utilizes files from PokeAPI for fetching pokemon information.
 Images and references of Pokémon are copyright of The Pokémon Company International. This site was made for educational purposes only.
 
 ##TODO
-- Add Pkmn # With Hyperlink
-- Add Back Button
-- Do something with the form input...
+- Idk

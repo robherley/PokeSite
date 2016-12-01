@@ -7,9 +7,9 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Russo+One">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/custoPkmn.js"></script>
-    <script src="js/jquery-3.1.1.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -25,7 +25,7 @@
       <a href="https://github.com/robherley/PokeSite"><i class="fa fa-code"></i> Source</a>
     </div>
     <ul>
-      <li><label><span onclick="openNav()"><a class="fa fa-bars fa-3x"></a></span></li>
+      <li><span onclick="openNav()"><a class="fa fa-bars fa-3x"></a></span></li>
     </ul>
     <div class="center-page-div">
       <h1>PokemonMaker</h1>
@@ -76,7 +76,7 @@
     </div>
     <div class="pokeMaker">
 
-    <button class="inputbutton" onclick="openEditor()"><p><i class="fa fa-cog fa-spin fa-2x fa-fw"></i>Create a New Pokemon!<i class="fa fa-cog fa-spin fa-2x fa-fw"></i></p></button>
+    <button id="createButton" class="inputbutton" onclick="openEditor()"><i class="fa fa-cog fa-spin fa-2x fa-fw"></i>Create a New Pokemon!<i class="fa fa-cog fa-spin fa-2x fa-fw"></i></button>
 
     <div id="id01" class="modal">
       <span onclick="closeEditor()" class="close" title="Close Modal">&times;</span>
@@ -132,7 +132,7 @@
               <td><select id="spdInput"></select></td>
             </tr>
           </table>
-
+          <input type='file'/>
         </div>
         <div class="container" id="dark-bg">
           <button class="inputbutton" type="button" onclick="submitForm()">Submit</button>
@@ -141,6 +141,7 @@
       </form>
     </div>
     </div>
+  </div>
     <div id="bg-scroll"></div>
   </body>
 </html>

@@ -9,6 +9,15 @@ function main(){
   fillSelector("spdInput");
 }
 
+function changeButton(){
+  var button = document.getElementById("createButton");
+  $(button).attr("onclick","refreshPage()");
+  $(button).html('Reset');
+}
+
+function refreshPage(){
+  location.reload();
+}
 
 function fillSelector(selector){
   var select = document.getElementById(selector);
@@ -43,6 +52,20 @@ function addStrengthWeak(typeArray){
     }
   });
 }
+
+$(function () {
+    $(":file").change(function () {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
+
+function imageIsLoaded(e) {
+    $('#stat-img').attr('src', e.target.result);
+};
 
 function submitForm(){
   var inputNum = "#" + document.getElementById("pkmnNumber").value + " " + document.getElementById("pkmnName").value;
@@ -114,6 +137,7 @@ function submitForm(){
   else{
     document.getElementById('hiddenPokeDiv').style.display='block';
     closeEditor();
+    changeButton();
   }
 }
 
