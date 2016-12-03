@@ -65,21 +65,21 @@ $(function () {
 
 function imageIsLoaded(e) {
     $('#stat-img').attr('src', e.target.result);
-};
+}
 
 function submitForm(){
   var inputNum = "#" + document.getElementById("pkmnNumber").value + " " + document.getElementById("pkmnName").value;
   document.getElementById("idname").innerHTML = inputNum;
   var inputDesc = document.getElementById("pkmnDesc").value;
   document.getElementById("desc").innerHTML = inputDesc;
-  var checkboxes = document.getElementsByName("types[]")
+  var checkboxes = document.getElementsByName("types[]");
   var typeArray = [];
   for(var i=0; i<checkboxes.length; i++){
     if(checkboxes[i].checked){
       typeArray.push(checkboxes[i].value);
     }
   }
-  addStrengthWeak(typeArray);
+
 
   var hpInput = document.getElementById("hpInput").value;
   var atkInput = document.getElementById("atkInput").value;
@@ -98,43 +98,44 @@ function submitForm(){
   var errMessage = "";
   var errorFlag = false;
   if(document.getElementById("pkmnNumber").value > 999 || document.getElementById("pkmnNumber").value < 0){
-    errMessage += "Please Enter a Pokemon Number x where 0 < x < 999.\n"
+    errMessage += "Please Enter a Pokemon Number x where 0 < x < 999.\n";
     errorFlag = true;
   }
   if(document.getElementById("pkmnName").value.length > 25){
-    errMessage += "Please Enter a Pokemon Name less than 25 characters.\n"
+    errMessage += "Please Enter a Pokemon Name less than 25 characters.\n";
     errorFlag = true;
   }
   if(document.getElementById("pkmnDesc").value.length > 80){
-    errMessage += "Please Enter a Description less than 80 characters.\n"
+    errMessage += "Please Enter a Description less than 80 characters.\n";
     errorFlag = true;
   }
   if(typeArray.length > 3){
-    errMessage += "Please Select 3 Types or less.\n"
+    errMessage += "Please Select 3 Types or less.\n";
     errorFlag = true;
   }
-  if(document.getElementById("pkmnNumber").value == ""){
-    errMessage += "Please Enter a Pokemon Number.\n"
+  if(document.getElementById("pkmnNumber").value === ""){
+    errMessage += "Please Enter a Pokemon Number.\n";
     errorFlag = true;
   }
-  if(document.getElementById("pkmnName").value == ""){
-    errMessage += "Please Enter a Pokemon Name.\n"
+  if(document.getElementById("pkmnName").value === ""){
+    errMessage += "Please Enter a Pokemon Name.\n";
     errorFlag = true;
   }
-  if(document.getElementById("pkmnDesc").value == ""){
-    errMessage += "Please Enter a Pokemon Description.\n"
+  if(document.getElementById("pkmnDesc").value === ""){
+    errMessage += "Please Enter a Pokemon Description.\n";
     errorFlag = true;
   }
-  if(typeArray.length == 0){
-    errMessage += "Please Select a Pokemon Type.\n"
+  if(typeArray.length === 0){
+    errMessage += "Please Select a Pokemon Type.\n";
     errorFlag = true;
   }
-  if(errorFlag == true){
+  if(errorFlag === true){
     alert(errMessage);
     errMessage = "";
     erroFlag = false;
   }
   else{
+    addStrengthWeak(typeArray);
     document.getElementById('hiddenPokeDiv').style.display='block';
     closeEditor();
     changeButton();

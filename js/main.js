@@ -16,7 +16,7 @@ function getPkmnList(dex){
   Pads pokenumber with 3 Zero's
 **/
 function fixPokeNumber(string){
-  return ("000" + string).slice(-3)
+  return ("000" + string).slice(-3);
 }
 
 /**
@@ -61,7 +61,7 @@ function main(){
   button.onclick = function(){
     document.cookie = "pkmn="+currPokemon;
     document.location.href = "stats.html";
-  }
+  };
 }
 
 $(document).ready(function() {

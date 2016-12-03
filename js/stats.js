@@ -44,7 +44,7 @@ function typeArray(){
   for (i = 0; i < typeArray.length; i++){
     newArray.push(cap(typeArray[i].type.name));
   }
-  return newArray
+  return newArray;
 }
 
 function addStrengthWeak(typeArray){
@@ -84,11 +84,14 @@ function getEvolutions(currPokemon){
        evoRow.deleteCell(i);
     }
     if(evoNum == 1){
+      $("#evoHead").attr('colspan',1);
       $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
-      $("#evoOne").css("width", "30%");
+      $("#evoOne").css("width", "25%");
       $("#row1").append(evoJSON[currPokemon].evo[0]);
+
     }
     else if (evoNum == 2) {
+      $("#evoHead").attr('colspan',3);
       $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
       $("#row1").append(evoJSON[currPokemon].evo[0]);
       $("#methodOne").append(evoJSON[currPokemon].method[0]);
@@ -96,6 +99,7 @@ function getEvolutions(currPokemon){
       $("#row2").append(evoJSON[currPokemon].evo[1]);
     }
     else if (evoNum == 3){
+      $("#evoHead").attr('colspan',5);
       $("#evoOne").attr('src','images/sprites/'+evoJSON[currPokemon].evo[0]+".png");
       $("#row1").append(evoJSON[currPokemon].evo[0]);
       $("#methodOne").append(evoJSON[currPokemon].method[0]);
